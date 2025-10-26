@@ -4,10 +4,12 @@
 
 ## 项目状态
 
-✅ **项目已初始化完成**
+✅ **项目开发完成**
 - Vue 3.5.22 + TypeScript + Vite 7.1.11
 - Cesium 1.134.1 集成
-- 完整的开发环境配置
+- 完整的模块化架构
+- Vue 3 Composition API 支持
+- 所有核心功能实现
 
 ## 技术栈
 
@@ -40,9 +42,12 @@ cesium-vue3/
 └── package.json        # 项目配置
 ```
 
-## 开发命令
+## 快速开始
 
 ```bash
+# 安装依赖
+pnpm install
+
 # 开发模式
 pnpm dev
 
@@ -56,15 +61,34 @@ pnpm preview
 pnpm type-check
 ```
 
+## 使用示例
+
+```typescript
+import Engine from '@/cesiumEngine';
+
+// 初始化 Cesium 场景
+const viewer = Engine.init('cesiumContainer');
+
+// 使用相机控制
+Engine.Camera.flyTo(viewer, 116.3974, 39.9093, 1000);
+
+// 添加标注点
+const position = Engine.Public.degToCartesian(116.3974, 39.9093);
+Engine.Feature.addPoint(viewer, position, { color: 'red' });
+```
+
 ## 功能特性
 
-- [ ] 基础三维地球展示
-- [ ] 相机控制与视角切换
-- [ ] 图层管理
-- [ ] 测量工具
-- [ ] 模型加载
-- [ ] 标签标注
-- [ ] 特效功能
+- [x] 基础三维地球展示
+- [x] 相机控制与视角切换
+- [x] 图层管理（OSM Buildings）
+- [x] 测量工具
+- [x] 模型加载
+- [x] 标签标注
+- [x] 特效功能
+- [x] 事件处理系统
+- [x] 插件机制
+- [x] Vue 3 Composition API 集成
 
 ## 环境要求
 
