@@ -1,10 +1,10 @@
 <template>
   <div class="wrapper">
-    <HelloWorld />
+    <Scene viewId="CesiumViewContainer"/>
   </div>
 </template>
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import Scene from './components/Scene.vue'
 </script>
 
 <style scoped>
